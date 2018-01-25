@@ -1,0 +1,16 @@
+#Thu Aug 07 16:27:12 CST 2014
+eclipse.preferences.version=1
+encoding//src/com/codash/cgm/db/DaoHelper.java=GBK
+encoding//src/com/codash/cgm/db/impl/MySqlHelper.java=GBK
+encoding//src/com/codash/cgm/db/impl/MySqlMapCmd.java=GBK
+encoding//src/com/codash/cgm/db/impl/OracleHelper.java=GBK
+encoding//src/com/codash/cgm/db/impl/OracleMapCmd.java=GBK
+encoding//src/com/codash/cgm/db/impl/Sql2005Helper.java=GBK
+encoding//src/com/codash/cgm/db/impl/Sql2005MapCmd.java=UTF-8
+encoding//src/com/codash/cgm/db/package.html=GBK
+encoding//src/com/codash/cgm/main/Codegen.java=GBK
+encoding//src/com/codash/cgm/model/ColumnModel.java=GBK
+encoding//src/com/codash/cgm/model/ConfigModel.java=GBK
+encoding//src/com/codash/cgm/model/TableModel.java=GBK
+encoding//src/com/codash/cgm/util/StringUtil.java=UTF-8
+encoding/<project>=UTF-8

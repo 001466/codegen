@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<project name="codegen"  default="gencode">
+	<property name="lib.dir" value="./lib"/>
+
+	<path id="refLib">
+		<fileset dir="${lib.dir}" includes="*.jar" /> 
+    </path>
+	<target id="gencode"  name="gencode" description="生成代码">
+			<gencode xmlPath="D:\fatest\dbi\metadata\codegen\codegenconfigext.xml" />
+	</target>
+    <taskdef name="gencode" classname="com.codash.cgm.main.Codegen">
+     	<classpath refid="refLib"/>
+    </taskdef>
+	
+</project>

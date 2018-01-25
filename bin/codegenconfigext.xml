@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="gbk" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:noNamespaceSchemaLocation="codegen.xsd">
+	<charset>UTF-8</charset>
+	<!--
+	<database dbHelperClass="com.codash.cgm.db.impl.MySqlHelper" url="jdbc:mysql://localhost:3306/bgb?useUnicode=true&amp;characterEncoding=utf-8" username="root" password="root"/>
+	<database dbHelperClass="com.codash.cgm.db.impl.MySqlHelper" url="jdbc:mysql://localhost:3306/bpm?useUnicode=true&amp;characterEncoding=utf-8" username="root" password="000"/>
+	-->
+	<database dbHelperClass="com.codash.cgm.db.impl.Sql2005Helper" url="jdbc:sqlserver://192.168.1.33;databaseName=dic" username="sa" password="bgb"/>
+
+	<variables>
+		<variable name="developer" value="codash" />
+		<variable name="email" value="240018840@qq.com" />
+		<variable name="company" value="gbg" />
+	</variables>
+	
+	<templates basepath="D:\fatest\dbi\metadata\codegen\templateext">
+		<template id="javaMapper" path="javaMapper.ftl" />
+		<template id="javaModel" path="javaModel.ftl" />
+		<template id="javaDao" path="javaDao.ftl" />
+		<template id="javaController" path="javaController.ftl" />
+		<template id="javaFormcontroller" path="javaFormcontroller.ftl"/>
+		<template id="javaService" path="javaService.ftl" />
+		<template id="javaFormValid" path="javaFormValid.ftl" />
+		<template id="javaFormproperties_zh_CN" path="javaFormproperties_zh_CN.ftl" />
+		<template id="javaFormproperties_en" path="javaFormproperties_en.ftl" />
+
+		<template id="jsSearchForm" path="jsSearchForm.js"/>
+		<template id="jsUpdateWin" path="jsUpdateWin.js"/>
+		<template id="jsSearchGrid" path="jsSearchGrid.js"/>
+		<template id="jsView" path="jsView.js"/>
+		<template id="jsController" path="jsController.js" />
+		<template id="jsModel" path="jsModel.js" />
+		<template id="jsStore" path="jsStore.js" />
+	</templates>
+	
+	<files baseDir="D:\fatest\dbi" >
+				
+				
+				
+				
+		<file refTemplate="javaModel" filename="{class}.java" 					dir="src\main\java\com\codash\platform\{package}\model" />
+		<file refTemplate="javaMapper" filename="{class}.map.xml" 				dir="src\main\java\com\codash\platform\{package}\model" />
+
+		<file refTemplate="javaDao" filename="{class}Dao.java" 					dir="src\main\java\com\codash\platform\{package}\dao" />
+		<file refTemplate="javaService" filename="{class}Service.java" 			dir="src\main\java\com\codash\platform\{package}\service" />
+		
+		<file refTemplate="javaController" filename="{class}Controller.java" 			dir="src\main\java\com\codash\platform\{package}\controller" />
+		<file refTemplate="javaFormcontroller" filename="{class}FormController.java" 	dir="src\main\java\com\codash\platform\{package}\controller" />
+	
+	
+		<file refTemplate="javaFormValid" filename="{class}.valid.xml" 						dir="src\main\java\com\codash\platform\{package}\model"/>
+		<file refTemplate="javaFormproperties_zh_CN" filename="{class}_zh_CN.properties" 	dir="src\main\java\com\codash\platform\{package}\model"/>
+		<file refTemplate="javaFormproperties_en" filename="{class}_en.properties" 			dir="src\main\java\com\codash\platform\{package}\model"/>
+		
+		
+		<file refTemplate="jsModel" filename="{class}Model.js" 					dir="src\main\java\com\codash\platform\{package}\web\model" />	
+		<file refTemplate="jsStore" filename="{class}Store.js" 					dir="src\main\java\com\codash\platform\{package}\web\store" />
+		<file refTemplate="jsSearchForm" filename="{class}SearchForm.js" 		dir="src\main\java\com\codash\platform\{package}\web\view" />
+		<file refTemplate="jsUpdateWin" filename="{class}UpdateWin.js" 			dir="src\main\java\com\codash\platform\{package}\web\view" />	
+		<file refTemplate="jsSearchGrid" filename="{class}SearchGrid.js" 		dir="src\main\java\com\codash\platform\{package}\web\view" />	
+		<file refTemplate="jsView" filename="{class}View.js" 					dir="src\main\java\com\codash\platform\{package}\web\view" />	
+		<file refTemplate="jsController" filename="{class}Controller.js" 		dir="src\main\java\com\codash\platform\{package}\web\controller" />	
+		
+		
+		
+		
+		
+	</files>
+	
+	
+	
+	<table tableName="SYS_TYPE_CLASS" >
+		<variable name="class"      value="SysTypeClass" />
+		<variable name="classVar"   value="sysTypeClass" />
+		<variable name="jsPackage"  value="sysdic" />
+		<variable name="package"    value="sysdic" />
+		<variable name="path"       value="sysdic" /> 
+	</table>
+	
+	
+	
+	<!-- 
+	
+	
+	
+	
+	
+	<table tableName="SYS_AUDIT" >
+		<variable name="class"      value="SysAudit" />
+		<variable name="classVar"   value="sysAudit" />
+		<variable name="jsPackage"  value="sysaudit" />
+		<variable name="package"    value="sysaudit" />
+		<variable name="path"       value="sysaudit" /> 
+	</table>
+	
+	<table tableName="SYS_USER_ROLE" >
+		<variable name="class"      value="SysUserRole" />
+		<variable name="classVar"   value="sysUserRole" />
+		<variable name="jsPackage"  value="sysrole" />
+		<variable name="package"    value="sysrole" />
+		<variable name="path"       value="sysrole" /> 
+	</table>
+	
+	
+	<table tableName="SYS_ROLE" >
+		<variable name="class"      value="SysRole" />
+		<variable name="classVar"   value="sysRole" />
+		<variable name="jsPackage"  value="sysrole" />
+		<variable name="package"    value="sysrole" />
+		<variable name="path"       value="sysrole" /> 
+	</table>
+	
+	
+	<table tableName="SYS_ROLE_RES" >
+		<variable name="class"      value="SysRoleResources" />
+		<variable name="classVar"   value="sysRoleResources" />
+		<variable name="jsPackage"  value="sysrole" />
+		<variable name="package"    value="sysrole" />
+		<variable name="path"       value="sysrole" /> 
+	</table>
+	
+	
+	
+	
+	
+	
+	
+	<table tableName="SYS_DEPENDENCY" >
+		<variable name="class"      value="SysDependency" />
+		<variable name="classVar"   value="sysDependency" />
+		<variable name="jsPackage"  value="sysresources" />
+		<variable name="package"    value="sysresources" />
+		<variable name="path"       value="sysresources" /> 
+	</table>
+	
+	
+	
+	
+	
+	<table tableName="SYS_RES" >
+		<variable name="class"      value="SysResources" />
+		<variable name="classVar"   value="sysResources" />
+		<variable name="jsPackage"  value="sysresources" />
+		<variable name="package"    value="sysresources" />
+		<variable name="path"       value="sysresources" /> 
+	</table>
+	
+	
+	
+	 <table tableName="SYS_RESURL" >
+		<variable name="class"      value="SysResourcesUrl" />
+		<variable name="classVar"   value="sysResourcesUrl" />
+		<variable name="jsPackage"  value="sysresources" />
+		<variable name="package"    value="sysresources" />
+		<variable name="path"       value="sysresources" /> 
+	</table>
+	
+	 
+ 
+	
+	  
+	
+	<genAll tableNames="CMS_COLUMN,CMS_LINK,TB_CMS_CREATE_TABLE">
+		<file refTemplate="allTable" dir="E:\temp\cms\all" filename="alltable.html"  genMode="SingleFile"></file>
+		<file refTemplate="tbdoc" dir="E:\temp\cms\all" extName="html"  genMode="MultiFile"></file>
+	</genAll>
+	 -->
+</config>

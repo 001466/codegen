@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="打包代码生成器">
+
+
+	<property name="lib.dir" location="lib" />
+	<property name="src.dir" location="src" />
+	<property name="bin.dir" location="bin" />
+	<property name="build.dir" location="build" />
+	<property name="doc.dir" location="build/doc" />
+
+
+	<!--引用的jar包 -->
+	<path id="libRef">
+		<fileset dir="${lib.dir}" includes="*.jar" />
+	</path>
+
+	<target name="打包代码生成器" description="打包代码生成器">
+		<!-- 生成bulid文档 -->
+		<delete dir="${build.dir}" />
+		<delete file="" />
+
+		<!-- 拷贝xml和schema文件到bulid文件夹 -->
+		<copy todir="${build.dir}">
+			<fileset dir="${src.dir}" includes="*.xml">
+			</fileset>
+			<fileset dir="${src.dir}" includes="*.properties">
+			</fileset>
+		</copy>
+		
+		<!-- 拷贝jar包 -->
+		<copy todir="${build.dir}/lib">
+			<fileset dir="${lib.dir}" includes="*.jar">
+			</fileset>
+		</copy>
+		<!-- 拷贝模版文件到bulid文件夹 -->
+		<copy todir="${build.dir}/templateext">
+			<fileset dir="${src.dir}/com/codash/cgm/templateext" includes="*.*">
+			</fileset>
+		</copy>
+		<!-- 拷贝doc文档 -->
+		<copy todir="${doc.dir}">
+			<fileset dir="${src.dir}/doc" includes="*.doc">
+			</fileset>
+		</copy>
+		
+		
+		
+		<!-- 编译生成class文件 -->
+		<javac srcdir="${src.dir}" destdir="${bin.dir}"
+			classpathref="libRef" debug="true" optimize="true" encoding="GBK">
+		</javac>
+		<!-- 将class文件打包 -->
+		<jar destfile="${build.dir}/lib/codegen.jar" basedir="${bin.dir}">
+
+		</jar>
+
+		<!-- 生成javadoc文档 -->
+		<!--<javadoc destdir="${doc.dir}/javadoc" encoding="GBK"
+			docencoding="GBK">
+			<packageset dir="${src.dir}">
+				<include name="com/codash/cgm/db/**" />
+				<include name="com/codash/cgm/model/**" />
+			</packageset>
+		</javadoc>
+		-->
+		
+		<!-- 浏览javadoc文档 -->
+		<!--<open-html-page url="${doc.dir}/javadoc/index.html" />-->
+		
+	</target>
+	<!-- 打开浏览器的命令 -->
+	<!--<macrodef name="open-html-page">
+		<attribute name="url" />
+		<sequential>
+			<exec executable="cmd"
+				os="Windows Vista, Windows XP,Windows 2000,Windows 98"
+				failifexecutionfails="false" failonerror="false">
+				<arg value="/C start &quot;${windows.browser}&quot; &quot;@{url}&quot;" />
+			</exec>
+			<exec executable="${macos.browser}" os="Mac OS X"
+				failifexecutionfails="false" failonerror="false">
+				<arg value="@{url}" />
+			</exec>
+			<exec executable="${linux.browser}" os="Linux"
+				failifexecutionfails="false" failonerror="false">
+				<arg value="@{url}" />
+			</exec>
+		</sequential>
+	</macrodef>
+	-->
+</project>
